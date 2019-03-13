@@ -6,21 +6,29 @@ const trendsURL = 'https://trends.google.com/trends/trendingsearches/daily/rss?g
 async function start () {
   function askAndReturnPrefix (searchTerm) {
     const prefixes = ['Who is', 'What is', 'The history of']
-    const selectedPrefixIndex = readline
-      .keyInSelect(prefixes, `Choose one prefix for '${searchTerm}'`)
+    const selectedPrefixIndex = readline.keyInSelect(
+      prefixes,
+      `Choose one prefix for '${searchTerm}'`
+    )
     return prefixes[selectedPrefixIndex]
   }
   
   async function askAndReturnSearchTerm () {
-    const response = readline
-      .question('Type a search term or G to fetch Google Trends: ')
-    return response.toUpperCase() === 'G' ? await askAndReturnTrend() : response
+    const response = readline.question(
+      'Type a search term or G to fetch Google Trends: '
+    )
+    return response.toUpperCase() === 'G'
+      ? await askAndReturnTrends()
+      : response
   }
   
-  async function askAndReturnTrend () {
+  async function askAndReturnTrends (howMany = 9) {
     console.log('Please wait...')
     const trends = await getGoogleTrends()
-    const choice = readline.keyInSelect(trends, 'Choose a trend')
+    const choice = readline.keyInSelect(
+      trends.slice(0, howMany),
+      'Choose a trend'
+    )
     return trends[choice]
   }
 

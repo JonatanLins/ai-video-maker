@@ -1,9 +1,10 @@
 const readline = require('readline-sync')
 
 function start () {
-  const askAndReturnPrefix = () => {
+  function askAndReturnPrefix (searchTerm) {
     const prefixes = ['Who is', 'What is', 'The history of']
-    const selectedPrefixIndex = readline.keyInSelect(prefixes, 'Choose one option')
+    const selectedPrefixIndex = readline
+      .keyInSelect(prefixes, `Choose one prefix for '${searchTerm}'`)
     return prefixes[selectedPrefixIndex]
   }
   
@@ -13,7 +14,7 @@ function start () {
   const content = {}
 
   content.searchTerm = askAndReturnSearchTerm()
-  content.prefix = askAndReturnPrefix()
+  content.prefix = askAndReturnPrefix(content.searchTerm)
 
   console.log(content)
 }

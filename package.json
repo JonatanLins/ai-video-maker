@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/JonatanLins/ai-video-maker",
   "author": "Jonatan Lins <jonatanpinheiro99@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
 }

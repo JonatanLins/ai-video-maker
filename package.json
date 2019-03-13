@@ -6,6 +6,7 @@
   "author": "Jonatan Lins <jonatanpinheiro99@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "readline-sync": "^1.4.9"
+    "readline-sync": "^1.4.9",
+    "rss-parser": "^3.6.3"
   }
 }

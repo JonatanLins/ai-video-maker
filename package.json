@@ -1,0 +1,8 @@
+{
+  "name": "ai-video-maker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JonatanLins/ai-video-maker",
+  "author": "Jonatan Lins <jonatanpinheiro99@gmail.com>",
+  "license": "MIT"
+}

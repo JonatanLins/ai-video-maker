@@ -1,9 +1,12 @@
-const userInputRobot = require('./robots/userInput')
+const userInputRobot = require('./robots/userInput');
+const textRobot = require('./robots/text');
 
-async function start () {
-  const content = await userInputRobot()
+const start = async () => {
+  let content = await userInputRobot();
 
-  console.log(content)
-}
+  await textRobot(content);
 
-start()
+  console.log(content);
+};
+
+start();

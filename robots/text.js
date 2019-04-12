@@ -12,7 +12,10 @@ const fetchContentFromWikipedia = async content => {
   const wikipediaAlgorithm = algorithmia(algorithmiaApiKey).algo(
     'web/WikipediaParser/0.1.2'
   );
-  const wikipediaResponse = await wikipediaAlgorithm.pipe(content.searchTerm);
+  const wikipediaResponse = await wikipediaAlgorithm.pipe({
+    lang: 'pt',
+    articleName: content.searchTerm,
+  });
   const wikipediaContent = wikipediaResponse.get();
 
   content.sourceContentOriginal = wikipediaContent.content;

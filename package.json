@@ -5,6 +5,9 @@
   "repository": "https://github.com/JonatanLins/ai-video-maker",
   "author": "Jonatan Lins <jonatanpinheiro99@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "imdb-scrapper": "^2.2.0",
     "readline-sync": "^1.4.9",

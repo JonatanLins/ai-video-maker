@@ -5,11 +5,9 @@ const imdbScrapper = require('imdb-scrapper');
 const trendsURL =
   'https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR';
 
-async function userInput() {
-  const searchTerm = await askAndReturnSearchTerm();
-  const prefix = askAndReturnPrefix(searchTerm);
-
-  return { prefix, searchTerm };
+async function userInput(content) {
+  content.searchTerm = await askAndReturnSearchTerm();
+  content.prefix = askAndReturnPrefix(content.searchTerm);
 }
 
 async function askAndReturnSearchTerm() {

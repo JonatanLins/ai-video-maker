@@ -5,12 +5,12 @@ const imdbScrapper = require('imdb-scrapper');
 const trendsURL =
   'https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR';
 
-async function userInput(content) {
+const robot = async content => {
   content.searchTerm = await askAndReturnSearchTerm();
   content.prefix = askAndReturnPrefix(content.searchTerm);
-}
+};
 
-async function askAndReturnSearchTerm() {
+const askAndReturnSearchTerm = async () => {
   const options = ['Entrada manual', 'Google Trends', 'Filmes populares'];
   const response = readline.keyInSelect(
     options,
@@ -24,13 +24,13 @@ async function askAndReturnSearchTerm() {
     case 2:
       return await askAndReturnImdbMovie();
   }
-}
+};
 
-function askAndReturnManualInput() {
+const askAndReturnManualInput = () => {
   return readline.question('Digite um tema: ');
-}
+};
 
-async function askAndReturnTrend(howMany = 9) {
+const askAndReturnTrend = async (howMany = 9) => {
   console.log('Por favor aguarde...');
   const trends = await getGoogleTrends();
   const choice = readline.keyInSelect(
@@ -38,33 +38,33 @@ async function askAndReturnTrend(howMany = 9) {
     'Escolha um tema'
   );
   return trends[choice];
-}
+};
 
-async function askAndReturnImdbMovie(howMany = 9) {
+const askAndReturnImdbMovie = async (howMany = 9) => {
   console.log('Por favor aguarde...');
   const movies = await getImdbMovies(howMany);
   const choice = readline.keyInSelect(movies, 'Escolha um filme');
   return movies[choice];
-}
+};
 
-async function getImdbMovies(howMany = 9) {
+const getImdbMovies = async (howMany = 9) => {
   const movies = await imdbScrapper.getTrending(howMany);
   return movies.trending.map(movie => movie.name);
-}
+};
 
-async function getGoogleTrends() {
+const getGoogleTrends = async () => {
   const parser = new RssParser();
   const trends = await parser.parseURL(trendsURL);
   return trends.items.map(item => item.title);
-}
+};
 
-function askAndReturnPrefix(searchTerm) {
+const askAndReturnPrefix = searchTerm => {
   const prefixes = ['Quem é', 'O que é', 'A história de'];
   const selectedPrefixIndex = readline.keyInSelect(
     prefixes.map(prefix => `${prefix} ${searchTerm}`),
     `Escolha um prefixo para '${searchTerm}'`
   );
   return prefixes[selectedPrefixIndex];
-}
+};
 
-module.exports = userInput;
+module.exports = robot;

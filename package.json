@@ -13,7 +13,8 @@
     "imdb-scrapper": "^2.2.0",
     "readline-sync": "^1.4.9",
     "rss-parser": "^3.6.3",
-    "sbd": "^1.0.15"
+    "sbd": "^1.0.15",
+    "watson-developer-cloud": "^4.0.1"
   },
   "prettier": {
     "trailingComma": "es5",

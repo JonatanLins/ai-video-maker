@@ -1,12 +1,14 @@
+const state = require('./robots/state');
 const userInputRobot = require('./robots/userInput');
 const textRobot = require('./robots/text');
 
 const start = async () => {
-  let content = { maximumSentences: 7 };
+  state.save({ maximumSentences: 7 });
 
-  await userInputRobot(content);
-  await textRobot(content);
+  await userInputRobot();
+  await textRobot();
 
+  const content = state.load();
   console.dir(content, { depth: null });
 };
 

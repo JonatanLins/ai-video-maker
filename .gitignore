@@ -1,6 +1,9 @@
 # Secret data
 credentials/*.json
 
+# Cache
+content.json
+
 # Logs
 logs
 *.log

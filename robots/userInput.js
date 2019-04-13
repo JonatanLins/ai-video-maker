@@ -1,13 +1,18 @@
 const readline = require('readline-sync');
 const RssParser = require('rss-parser');
 const imdbScrapper = require('imdb-scrapper');
+const state = require('./state');
 
 const trendsURL =
   'https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR';
 
-const robot = async content => {
+const robot = async () => {
+  const content = state.load();
+
   content.searchTerm = await askAndReturnSearchTerm();
   content.prefix = askAndReturnPrefix(content.searchTerm);
+
+  state.save(content);
 };
 
 const askAndReturnSearchTerm = async () => {

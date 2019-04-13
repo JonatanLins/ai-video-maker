@@ -11,10 +11,10 @@ async function userInput(content) {
 }
 
 async function askAndReturnSearchTerm() {
-  const options = ['Manual input', 'Google Trends', 'Popular movies'];
+  const options = ['Entrada manual', 'Google Trends', 'Filmes populares'];
   const response = readline.keyInSelect(
     options,
-    'Select an option to choose the search term'
+    'Selecione uma opção para escolher um tema'
   );
   switch (response) {
     case 0:
@@ -27,23 +27,23 @@ async function askAndReturnSearchTerm() {
 }
 
 function askAndReturnManualInput() {
-  return readline.question('Type a search term: ');
+  return readline.question('Digite um tema: ');
 }
 
 async function askAndReturnTrend(howMany = 9) {
-  console.log('Please wait...');
+  console.log('Por favor aguarde...');
   const trends = await getGoogleTrends();
   const choice = readline.keyInSelect(
     trends.slice(0, howMany),
-    'Choose a trend'
+    'Escolha um tema'
   );
   return trends[choice];
 }
 
 async function askAndReturnImdbMovie(howMany = 9) {
-  console.log('Please wait...');
+  console.log('Por favor aguarde...');
   const movies = await getImdbMovies(howMany);
-  const choice = readline.keyInSelect(movies, 'Choose a movie');
+  const choice = readline.keyInSelect(movies, 'Escolha um filme');
   return movies[choice];
 }
 
@@ -59,10 +59,10 @@ async function getGoogleTrends() {
 }
 
 function askAndReturnPrefix(searchTerm) {
-  const prefixes = ['Who is', 'What is', 'The history of'];
+  const prefixes = ['Quem é', 'O que é', 'A história de'];
   const selectedPrefixIndex = readline.keyInSelect(
-    prefixes,
-    `Choose one prefix for '${searchTerm}'`
+    prefixes.map(prefix => `${prefix} ${searchTerm}`),
+    `Escolha um prefixo para '${searchTerm}'`
   );
   return prefixes[selectedPrefixIndex];
 }

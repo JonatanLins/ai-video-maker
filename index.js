@@ -7,7 +7,7 @@ const start = async () => {
   await userInputRobot(content);
   await textRobot(content);
 
-  console.log(content.sentences);
+  console.dir(content, { depth: null });
 };
 
 start();

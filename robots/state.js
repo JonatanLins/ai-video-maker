@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const contentFilePath = './content.json';
+const contentFilePath = './cache/state.json';
 
 const save = content => {
   const contentString = JSON.stringify(content);

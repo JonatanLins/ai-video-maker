@@ -3,6 +3,7 @@ credentials/*.json
 
 # Cache
 content.json
+cache/
 
 # Logs
 logs

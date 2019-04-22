@@ -27,7 +27,7 @@ const getImageLinks = async query => {
     cx: googleSearchCredentials.searchEngineID,
     q: query,
     searchType: 'image',
-    num: 2,
+    num: 4,
   });
 
   return response.data.items.map(item => item.link);
@@ -59,10 +59,7 @@ const downloadAllImages = async content => {
 };
 
 const downloadAndSave = async (url, fileName) => {
-  return imageDownloader.image({
-    url,
-    dest: `./cache/${fileName}`,
-  });
+  return imageDownloader.image({ url, dest: `./cache/${fileName}` });
 };
 
 module.exports = robot;

@@ -27,7 +27,7 @@ const getImageLinks = async query => {
     cx: googleSearchCredentials.searchEngineID,
     q: query,
     searchType: 'image',
-    num: 2,
+    num: 4,
   });
 
   return response.data.items.map(item => item.link);

@@ -24,7 +24,7 @@ const convertImage = async (number, dimensions) => {
     const [width, height] = dimensions;
 
     gm()
-      .in(inputFilePath)
+      .in(inputFile)
       .out('(')
       .out('-clone')
       .out('0')

@@ -1,5 +1,13 @@
 # Secret data
-credentials/*.json
+**/credentials/*.json
+
+# Production files
+dist
+build
+
+# Cache
+content.json
+cache/
 
 # Logs
 logs
@@ -31,6 +39,9 @@ bower_components
 
 # node-waf configuration
 .lock-wscript
+
+# MacOS data
+.DS_Store 
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release

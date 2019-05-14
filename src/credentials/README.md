@@ -24,3 +24,14 @@ File: `watson-nlu.json`
   "url": "LOREM IPSUM"
 }
 ```
+
+## Google Custom Search Engine
+
+File: `google-search.json`
+
+```
+{
+  "apiKey": "YOUR API KEY",
+  "searchEngineID": "YOUR ID"
+}
+```

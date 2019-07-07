@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "algorithmia": "^0.3.10",
-    "gluegun": "^2.1.0",
+    "gluegun": "^3.3.1",
     "gm": "^1.23.1",
-    "googleapis": "^39.2.0",
+    "googleapis": "^40.0.1",
     "image-downloader": "^3.4.2",
     "sbd": "^1.0.15",
     "watson-developer-cloud": "^4.0.1"
@@ -27,7 +27,7 @@
   "devDependencies": {
     "standard": "^12.0.1",
     "prettier": "^1.12.1",
-    "jest": "^23.6.0"
+    "jest": "^24.8.0"
   },
   "jest": {
     "testEnvironment": "node"
